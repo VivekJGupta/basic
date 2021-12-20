@@ -148,4 +148,13 @@ class SiteController extends Controller
         }
         return $this->render('UserForm', ['model'=>$model]);
     }
+
+
+    public function actionTest()
+    {
+        $test = new TestForm();
+        $test->name = 'Vivek';
+        $test['surname'] = 'Gupta';
+        echo $test['surname'];
+    }
 }
