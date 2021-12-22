@@ -9,4 +9,5 @@ class TestForm extends Model
 	public $name;
 	public $surname;
 	public $email;
+	public $mobile;
 }
