@@ -14,6 +14,7 @@ use Yii;
  */
 class Users extends \yii\db\ActiveRecord
 {
+
     /**
      * {@inheritdoc}
      */
@@ -39,11 +40,12 @@ class Users extends \yii\db\ActiveRecord
      */
     public function attributeLabels()
     {
+        
         return [
             'id' => 'ID',
             'name' => 'Name',
             'password' => 'Password',
-            'date' => 'Date',
+            'date' => '',
         ];
     }
 
@@ -61,3 +63,5 @@ class Users extends \yii\db\ActiveRecord
         return true;
     }
 }
+
+
