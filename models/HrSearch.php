@@ -4,12 +4,12 @@ namespace app\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Clients;
+use app\models\HR;
 
 /**
- * ClientsSearch represents the model behind the search form of `app\models\Clients`.
+ * HrSearch represents the model behind the search form of `app\models\HR`.
  */
-class ClientsSearch extends Clients
+class HrSearch extends HR
 {
     /**
      * {@inheritdoc}
@@ -17,8 +17,8 @@ class ClientsSearch extends Clients
     public function rules()
     {
         return [
-            [['id', 'hr_id', 'contact', 'created_at', 'updated_at', 'is_active'], 'integer'],
-            [['company', 'email', 'token', 'password'], 'safe'],
+            [['id', 'created_at', 'updated_at', 'is_active'], 'integer'],
+            [['name', 'email', 'password'], 'safe'],
         ];
     }
 
@@ -40,7 +40,7 @@ class ClientsSearch extends Clients
      */
     public function search($params)
     {
-        $query = Clients::find();
+        $query = HR::find();
 
         // add conditions that should always apply here
 
@@ -59,16 +59,13 @@ class ClientsSearch extends Clients
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'hr_id' => $this->hr_id,
-            'contact' => $this->contact,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
             'is_active' => $this->is_active,
         ]);
 
-        $query->andFilterWhere(['like', 'company', $this->company])
+        $query->andFilterWhere(['like', 'name', $this->name])
             ->andFilterWhere(['like', 'email', $this->email])
-            ->andFilterWhere(['like', 'token', $this->token])
             ->andFilterWhere(['like', 'password', $this->password]);
 
         return $dataProvider;

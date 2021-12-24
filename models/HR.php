@@ -5,21 +5,24 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "clients".
+ * This is the model class for table "HR".
  *
  * @property int $id
  * @property string|null $name
+ * @property string|null $email
  * @property string|null $password
- * @property string|null $date
+ * @property int|null $created_at
+ * @property int|null $updated_at
+ * @property int|null $is_active
  */
-class Clients extends \yii\db\ActiveRecord
+class HR extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return 'clients';
+        return 'HR';
     }
 
     /**
@@ -28,9 +31,8 @@ class Clients extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'password', 'company', 'email', 'contact', 'hr_id'], 'required'],
-            [['date'], 'safe'],
-            [['name', 'password'], 'string', 'max' => 50],
+            [['created_at', 'updated_at', 'is_active'], 'integer'],
+            [['name', 'email', 'password'], 'string', 'max' => 100],
         ];
     }
 
@@ -42,9 +44,11 @@ class Clients extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'name' => 'Name',
+            'email' => 'Email',
             'password' => 'Password',
-            'date' => 'Date',
-            'hr_id' => 'HR Name',
+            'created_at' => 'Created At',
+            'updated_at' => 'Updated At',
+            'is_active' => 'Is Active',
         ];
     }
 }

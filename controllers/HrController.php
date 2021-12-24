@@ -2,16 +2,16 @@
 
 namespace app\controllers;
 
-use app\models\Users;
-use app\models\UsersSearch;
+use app\models\HR;
+use app\models\HrSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * UsersController implements the CRUD actions for Users model.
+ * HrController implements the CRUD actions for HR model.
  */
-class UsersController extends Controller
+class HrController extends Controller
 {
     /**
      * @inheritDoc
@@ -32,12 +32,12 @@ class UsersController extends Controller
     }
 
     /**
-     * Lists all Users models.
+     * Lists all HR models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new UsersSearch();
+        $searchModel = new HrSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
         return $this->render('index', [
@@ -47,7 +47,7 @@ class UsersController extends Controller
     }
 
     /**
-     * Displays a single Users model.
+     * Displays a single HR model.
      * @param int $id ID
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -59,19 +59,19 @@ class UsersController extends Controller
         ]);
     }
 
+
+
     /**
-     * Creates a new Users model.
+     * Creates a new HR model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Users();
+        $model = new HR();
 
         if ($this->request->isPost) {
-            if ($model->load($this->request->post())) {
-                $model->date = time(); 
-                $model->save();
+            if ($model->load($this->request->post()) && $model->save()) {
                 return $this->redirect(['view', 'id' => $model->id]);
             }
         } else {
@@ -84,7 +84,7 @@ class UsersController extends Controller
     }
 
     /**
-     * Updates an existing Users model.
+     * Updates an existing HR model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param int $id ID
      * @return mixed
@@ -104,7 +104,7 @@ class UsersController extends Controller
     }
 
     /**
-     * Deletes an existing Users model.
+     * Deletes an existing HR model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param int $id ID
      * @return mixed
@@ -118,15 +118,15 @@ class UsersController extends Controller
     }
 
     /**
-     * Finds the Users model based on its primary key value.
+     * Finds the HR model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param int $id ID
-     * @return Users the loaded model
+     * @return HR the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Users::findOne($id)) !== null) {
+        if (($model = HR::findOne($id)) !== null) {
             return $model;
         }
 

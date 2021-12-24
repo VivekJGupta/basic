@@ -1,0 +1,44 @@
+MariaDB [vivek]> desc clients;
++------------+--------------+------+-----+---------+----------------+
+| Field      | Type         | Null | Key | Default | Extra          |
++------------+--------------+------+-----+---------+----------------+
+| id         | int(11)      | NO   | PRI | NULL    | auto_increment |
+| hr_id      | int(11)      | YES  | MUL | NULL    |                |
+| company    | varchar(150) | YES  |     | NULL    |                |
+| contact    | int(11)      | YES  |     | NULL    |                |
+| email      | varchar(100) | YES  |     | NULL    |                |
+| token      | text         | YES  |     | NULL    |                |
+| password   | varchar(100) | YES  |     | NULL    |                |
+| created_at | int(11)      | YES  |     | NULL    |                |
+| updated_at | int(11)      | YES  |     | 0       |                |
+| is_active  | int(1)       | YES  |     | 0       |                |
++------------+--------------+------+-----+---------+----------------+
+10 rows in set (0.01 sec)
+
+MariaDB [vivek]>
+
+
+
+
+
+=====================================================================
+
+MariaDB [vivek]> desc hr;
++------------+--------------+------+-----+---------+----------------+
+| Field      | Type         | Null | Key | Default | Extra          |
++------------+--------------+------+-----+---------+----------------+
+| id         | int(11)      | NO   | PRI | NULL    | auto_increment |
+| name       | varchar(100) | YES  |     | NULL    |                |
+| email      | varchar(100) | YES  |     | NULL    |                |
+| password   | varchar(100) | YES  |     | NULL    |                |
+| created_at | int(11)      | YES  |     | NULL    |                |
+| updated_at | int(11)      | YES  |     | 0       |                |
+| is_active  | int(1)       | YES  |     | 0       |                |
++------------+--------------+------+-----+---------+----------------+
+7 rows in set (0.11 sec)
+
+MariaDB [vivek]>
+
+
+
+
