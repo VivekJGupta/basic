@@ -2,14 +2,14 @@
 
 namespace app\controllers;
 
-use app\models\HR;
+use app\models\Hr;
 use app\models\HrSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * HrController implements the CRUD actions for HR model.
+ * HrController implements the CRUD actions for Hr model.
  */
 class HrController extends Controller
 {
@@ -32,7 +32,7 @@ class HrController extends Controller
     }
 
     /**
-     * Lists all HR models.
+     * Lists all Hr models.
      * @return mixed
      */
     public function actionIndex()
@@ -47,7 +47,7 @@ class HrController extends Controller
     }
 
     /**
-     * Displays a single HR model.
+     * Displays a single Hr model.
      * @param int $id ID
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -59,16 +59,14 @@ class HrController extends Controller
         ]);
     }
 
-
-
     /**
-     * Creates a new HR model.
+     * Creates a new Hr model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new HR();
+        $model = new Hr();
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
@@ -84,7 +82,7 @@ class HrController extends Controller
     }
 
     /**
-     * Updates an existing HR model.
+     * Updates an existing Hr model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param int $id ID
      * @return mixed
@@ -104,7 +102,7 @@ class HrController extends Controller
     }
 
     /**
-     * Deletes an existing HR model.
+     * Deletes an existing Hr model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param int $id ID
      * @return mixed
@@ -118,15 +116,15 @@ class HrController extends Controller
     }
 
     /**
-     * Finds the HR model based on its primary key value.
+     * Finds the Hr model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param int $id ID
-     * @return HR the loaded model
+     * @return Hr the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = HR::findOne($id)) !== null) {
+        if (($model = Hr::findOne($id)) !== null) {
             return $model;
         }
 

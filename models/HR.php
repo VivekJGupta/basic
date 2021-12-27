@@ -5,7 +5,7 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "HR".
+ * This is the model class for table "hr".
  *
  * @property int $id
  * @property string|null $name
@@ -14,15 +14,17 @@ use Yii;
  * @property int|null $created_at
  * @property int|null $updated_at
  * @property int|null $is_active
+ *
+ * @property Clients[] $clients
  */
-class HR extends \yii\db\ActiveRecord
+class Hr extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return 'HR';
+        return 'hr';
     }
 
     /**
@@ -33,6 +35,7 @@ class HR extends \yii\db\ActiveRecord
         return [
             [['created_at', 'updated_at', 'is_active'], 'integer'],
             [['name', 'email', 'password'], 'string', 'max' => 100],
+            ['name', 'required', 'message'=>'name must be filled !', ],
         ];
     }
 
@@ -46,9 +49,31 @@ class HR extends \yii\db\ActiveRecord
             'name' => 'Name',
             'email' => 'Email',
             'password' => 'Password',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
-            'is_active' => 'Is Active',
         ];
     }
+
+    /**
+     * Gets query for [[Clients]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getClients()
+    {
+        return $this->hasMany(Clients::className(), ['hr_id' => 'id']);
+    }
+
+
+    // public function beforeSave($insert)
+    // {
+    //     if (!parent::beforeSave($insert))
+    //     {
+    //         return false;
+    //     }
+
+    //     if ($insert) {
+    //         $this->date = time();
+    //     }
+    //     //$this->updated_at = time();
+    //     return true;
+    // }
 }

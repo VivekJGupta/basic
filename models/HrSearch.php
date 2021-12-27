@@ -4,12 +4,12 @@ namespace app\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\HR;
+use app\models\Hr;
 
 /**
- * HrSearch represents the model behind the search form of `app\models\HR`.
+ * HrSearch represents the model behind the search form of `app\models\Hr`.
  */
-class HrSearch extends HR
+class HrSearch extends Hr
 {
     /**
      * {@inheritdoc}
@@ -40,7 +40,7 @@ class HrSearch extends HR
      */
     public function search($params)
     {
-        $query = HR::find();
+        $query = Hr::find();
 
         // add conditions that should always apply here
 
